@@ -48,7 +48,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="79"/>
                                         <connections>
-                                            <outlet property="userLabel" destination="rL9-bt-3qS" id="NkS-Vn-GxR"/>
+                                            <outlet property="user" destination="RT3-ni-Vwx" id="M8d-ZZ-e6z"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
