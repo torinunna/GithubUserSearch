@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 class SearchViewController: UIViewController {
+    
+    @Published private(set) var users: [SearchResult] = []
+    var subscriptisons = Set<AnyCancellable>()
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -21,6 +25,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         embedSearchController()
         configureCollectionView()
+        bind()
     }
     
     private func embedSearchController() {
@@ -51,6 +56,17 @@ class SearchViewController: UIViewController {
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         return UICollectionViewCompositionalLayout(section: section)
+    }
+    
+    private func bind() {
+        $users
+            .receive(on: RunLoop.main)
+            .sink { users in
+                var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+                snapshot.appendSections([.main])
+                snapshot.appendItems(users, toSection: .main)
+                self.datasource.apply(snapshot)
+            }.store(in: &subscriptisons)
     }
 }
 
