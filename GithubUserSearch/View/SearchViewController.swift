@@ -9,14 +9,11 @@ import UIKit
 import Combine
 
 class SearchViewController: UIViewController {
-    
-    let network = NetworkService(configuration: .default)
-    
-    @Published private(set) var users: [SearchResult] = []
-    var subscriptisons = Set<AnyCancellable>()
-
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var viewModel: SearchViewModel!
+    var subscriptions = Set<AnyCancellable>()
+
     typealias Item = SearchResult
     var datasource: UICollectionViewDiffableDataSource<Section, Item>!
     enum Section {
@@ -25,6 +22,7 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = SearchViewModel(network: NetworkService(configuration: .default))
         embedSearchController()
         configureCollectionView()
         bind()
@@ -61,14 +59,14 @@ class SearchViewController: UIViewController {
     }
     
     private func bind() {
-        $users
+        viewModel.$users
             .receive(on: RunLoop.main)
             .sink { users in
                 var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
                 snapshot.appendSections([.main])
                 snapshot.appendItems(users, toSection: .main)
                 self.datasource.apply(snapshot)
-            }.store(in: &subscriptisons)
+            }.store(in: &subscriptions)
     }
 }
 
@@ -81,21 +79,7 @@ extension SearchViewController: UISearchResultsUpdating {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("search pressed: \(searchBar.text)")
         guard let keyword = searchBar.text, !keyword.isEmpty else { return }
-        
-        let resource = Resource<SearchUserResponse>(
-            base: "https://api.github.com/",
-            path: "search/users",
-            params: ["q": keyword],
-            header: ["Content-Type": "application/json"]
-        )
-        
-        network.load(resource)
-            .map { $0.items }
-            .replaceError(with: [])
-            .receive(on: RunLoop.main)
-            .assign(to: \.users, on: self)
-            .store(in: &subscriptisons)
+        viewModel.search(keyword: keyword)
     }
 }
