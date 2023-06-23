@@ -22,6 +22,7 @@
 		865812062A2DC4EB00EAD541 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865812052A2DC4EB00EAD541 /* SearchViewModel.swift */; };
 		86B44F792A45D1DC00B2B086 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B44F782A45D1DC00B2B086 /* UserProfileView.swift */; };
 		86B44F7B2A45D28E00B2B086 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B44F7A2A45D28E00B2B086 /* UserProfile.swift */; };
+		86B44F7D2A45D9C800B2B086 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B44F7C2A45D9C800B2B086 /* UserProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		865812052A2DC4EB00EAD541 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		86B44F782A45D1DC00B2B086 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		86B44F7A2A45D28E00B2B086 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		86B44F7C2A45D9C800B2B086 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				865812052A2DC4EB00EAD541 /* SearchViewModel.swift */,
+				86B44F7C2A45D9C800B2B086 /* UserProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				86097C7F2A29E47A00D47779 /* SearchUserResponse.swift in Sources */,
 				86097C742A2882B200D47779 /* SearchResult.swift in Sources */,
 				86097C722A287ABC00D47779 /* ResultCell.swift in Sources */,
+				86B44F7D2A45D9C800B2B086 /* UserProfileViewModel.swift in Sources */,
 				865812062A2DC4EB00EAD541 /* SearchViewModel.swift in Sources */,
 				86B44F792A45D1DC00B2B086 /* UserProfileView.swift in Sources */,
 				86B44F7B2A45D28E00B2B086 /* UserProfile.swift in Sources */,

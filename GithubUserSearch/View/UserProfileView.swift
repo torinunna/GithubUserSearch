@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct UserProfileView: View {
-    var userProfile: UserProfile
+    
+    @StateObject var viewModel: UserProfileViewModel
         
     var body: some View {
         VStack(spacing: 15) {
@@ -17,17 +18,19 @@ struct UserProfileView: View {
                 .background(.gray)
                 .cornerRadius(80)
             
-            Text(userProfile.name)
-            Text(userProfile.login)
-            Text("\(userProfile.followers)")
-            Text("\(userProfile.following)")
-            
+            Text(viewModel.name)
+            Text(viewModel.login)
+            Text(viewModel.followers)
+            Text(viewModel.following)
+        }.onAppear {
+            let id = viewModel.loginID
+            viewModel.search(keyword: id)
         }
     }
 }
 
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        UserProfileView(userProfile: UserProfile.mock)
+        UserProfileView(viewModel: UserProfileViewModel(network: NetworkService(configuration: .default), loginID: "torinunna"))
     }
 }
