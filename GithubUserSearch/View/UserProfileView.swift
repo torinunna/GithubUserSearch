@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct UserProfileView: View {
+    var userProfile: UserProfile
+        
     var body: some View {
         VStack(spacing: 15) {
             Image("")
@@ -15,10 +17,10 @@ struct UserProfileView: View {
                 .background(.gray)
                 .cornerRadius(80)
             
-            Text("name")
-            Text("login ID")
-            Text("followers")
-            Text("following")
+            Text(userProfile.name)
+            Text(userProfile.login)
+            Text("\(userProfile.followers)")
+            Text("\(userProfile.following)")
             
         }
     }
@@ -26,6 +28,6 @@ struct UserProfileView: View {
 
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        UserProfileView()
+        UserProfileView(userProfile: UserProfile.mock)
     }
 }

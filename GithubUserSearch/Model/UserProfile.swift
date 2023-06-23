@@ -26,3 +26,15 @@ struct UserProfile: Hashable, Identifiable, Decodable {
         case following
     }
 }
+
+extension UserProfile {
+    static let mock = UserProfile(
+        id: 86116904,
+        login: "torinunna",
+        name: "torinunna",
+        avatarUrl: URL(string: "https://avatars.githubusercontent.com/u/86116904?v=4")!,
+        htmlUrl: "https://github.com/torinunna",
+        followers: 0,
+        following: 3
+    )
+}
