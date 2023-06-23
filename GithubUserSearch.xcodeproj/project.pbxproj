@@ -20,6 +20,7 @@
 		86097C7B2A29E00300D47779 /* Publisher+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86097C7A2A29E00300D47779 /* Publisher+Utils.swift */; };
 		86097C7F2A29E47A00D47779 /* SearchUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86097C7E2A29E47A00D47779 /* SearchUserResponse.swift */; };
 		865812062A2DC4EB00EAD541 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865812052A2DC4EB00EAD541 /* SearchViewModel.swift */; };
+		86B44F792A45D1DC00B2B086 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B44F782A45D1DC00B2B086 /* UserProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		86097C7A2A29E00300D47779 /* Publisher+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Utils.swift"; sourceTree = "<group>"; };
 		86097C7E2A29E47A00D47779 /* SearchUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserResponse.swift; sourceTree = "<group>"; };
 		865812052A2DC4EB00EAD541 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		86B44F782A45D1DC00B2B086 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				86097C612A286CCB00D47779 /* SearchViewController.swift */,
+				86B44F782A45D1DC00B2B086 /* UserProfileView.swift */,
 				86097C712A287ABC00D47779 /* ResultCell.swift */,
 				86097C632A286CCB00D47779 /* Main.storyboard */,
 			);
@@ -206,6 +209,7 @@
 				86097C742A2882B200D47779 /* SearchResult.swift in Sources */,
 				86097C722A287ABC00D47779 /* ResultCell.swift in Sources */,
 				865812062A2DC4EB00EAD541 /* SearchViewModel.swift in Sources */,
+				86B44F792A45D1DC00B2B086 /* UserProfileView.swift in Sources */,
 				86097C772A29DFBF00D47779 /* NetworkService.swift in Sources */,
 				86097C602A286CCB00D47779 /* SceneDelegate.swift in Sources */,
 				86097C792A29DFDC00D47779 /* Resource.swift in Sources */,
