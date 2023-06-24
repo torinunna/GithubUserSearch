@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import SwiftUI
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -47,6 +48,7 @@ class SearchViewController: UIViewController {
         })
         
         collectionView.collectionViewLayout = layout()
+        collectionView.delegate = self
     }
     
     private func layout() -> UICollectionViewCompositionalLayout {
@@ -81,5 +83,16 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let keyword = searchBar.text, !keyword.isEmpty else { return }
         viewModel.search(keyword: keyword)
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let loginID = viewModel.users[indexPath.item].login
+        let viewModel = UserProfileViewModel(network: NetworkService(configuration: .default), loginID: loginID)
+        let userProfileView = UserProfileView(viewModel: viewModel)
+        let hostingVC = UIHostingController(rootView: userProfileView)
+        
+        navigationController?.pushViewController(hostingVC, animated: true)
     }
 }
