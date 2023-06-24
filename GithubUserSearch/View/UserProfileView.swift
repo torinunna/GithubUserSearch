@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct UserProfileView: View {
     
@@ -13,7 +14,9 @@ struct UserProfileView: View {
         
     var body: some View {
         VStack(spacing: 15) {
-            Image("")
+            KFImage(viewModel.imageURL)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
                 .frame(width: 160, height: 169)
                 .background(.gray)
                 .cornerRadius(80)

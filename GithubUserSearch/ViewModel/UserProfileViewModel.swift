@@ -40,6 +40,10 @@ final class UserProfileViewModel: ObservableObject {
         return "following: \(value)"
     }
     
+    var imageURL: URL? {
+        return selectedUser?.avatarUrl
+    }
+    
     func search(keyword: String) {
         let resource = Resource<UserProfile> (
             base: "https://api.github.com/",
